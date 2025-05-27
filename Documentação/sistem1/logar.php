@@ -1,0 +1,32 @@
+<?php
+
+
+
+if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['senha']) && !empty($_POST['senha'])) {
+    session_start();
+    require 'conexao.php';                                                       
+    $email = $_POST["email"];
+    $senha = $_POST["senha"];
+    $sql = "SELECT * FROM usuario WHERE email = :email AND senha = :senha";
+    $resultado = $conn->prepare($sql);
+    $resultado->bindvalue(":email",$email);
+    $resultado->bindvalue(":senha",$senha);
+    $resultado->execute();
+    $dado = $resultado-> fetch();
+
+    if($resultado->rowCount() > 0){
+        if( $senha === $dado["senha"] && $email === $dado["email"]){
+            $_SESSION['id'] = $dado['ID'];
+            $_SESSION['email'] = $dado['email'];
+
+            header('Location: index.php');
+        } else {
+            header('Location: login.php');
+        }
+       
+    } else {
+        header('Location: login.php');
+
+    }
+}
+?>
