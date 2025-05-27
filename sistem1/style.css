@@ -1,0 +1,86 @@
+*{
+margin:0 ;
+padding: 0;
+box-sizing: border-box;
+}
+body{
+    background-color: #d0d0d0;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    /* justify-content: center;  */
+    align-items: center; 
+    flex-direction: column;
+    height: 893px;
+    width: 1920px;
+}
+#nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    width: 1920px;
+    box-shadow: 0 4px 4px -2px black;
+    
+
+
+}
+.name1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.login{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    height: 400px;
+    flex-direction: column;
+    margin-top: 50px;
+
+}
+.input{
+    width: 313.97px;
+    height: 41.31px;
+    border-radius: 12px;
+
+}
+#cad{
+    background-color: #ff5f00;
+    width: 313.97px;
+    height: 41.31px;
+    border-radius: 12px;
+    color: white;
+  
+
+
+}
+#butcad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+.MB{
+    padding-left:60px;
+    padding-top: 10px;
+    height: 90px;
+    width: 300px;
+
+}
+
+#hla{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 740px;
+    
+
+}
+a{
+color: black;
+text-decoration: none;
+padding-right: 60px;
+
+}
