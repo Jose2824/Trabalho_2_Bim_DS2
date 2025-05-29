@@ -16,12 +16,14 @@ if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['senha']) 
 
     if($resultado->rowCount() > 0){
         if( $senha === $dado["senha"] && $email === $dado["email"]){
-            $_SESSION['id'] = $dado['ID'];
+            $_SESSION['id'] = $dado['id'];
             $_SESSION['email'] = $dado['email'];
 
             header('Location: index.php');
+            
         } else {
             header('Location: login.php');
+            exit();
         }
        
     } else {
@@ -30,3 +32,4 @@ if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['senha']) 
     }
 }
 ?>
+<h1>oi</h1>

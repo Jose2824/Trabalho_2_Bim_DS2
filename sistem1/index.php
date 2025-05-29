@@ -1,10 +1,15 @@
 <?php
 session_start();
-if(!isset($_SESSION['id'])){
-    header('location: login.php');
+if (!isset($_SESSION['id'])) {
+    header('Location: login.php');
+    exit();
 }
-
 ?>
+
+<!-- <h1>Bem-vindo ao dashboard, <?php echo htmlspecialchars($_SESSION['email']); ?>!</h1> -->
+<!-- <a href="logout.php">Sair</a> -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
