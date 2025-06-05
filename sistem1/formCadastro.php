@@ -3,13 +3,13 @@
  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Major Buggy</title>
     <link rel="stylesheet" href="style.css">
  </head>
  <body>
   <header>
-        <div id= nav>
-            <img src="logoMB.png" alt="logo" class=MB>
+        <div class= "nav">
+            <img src="assets/logoMB.png" alt="logo" class="logo">
               <div id= hla>
                 <a href="#">Home</a>
                 <a href="login.php">Login</a>
@@ -37,8 +37,8 @@
             <br>
             <input type="password" id="senha" name="senha" placeholder="Digite a Senha" required class= input>
             <br>
-            <div id=butcad>
-              <input type="submit" value="Cadastrar"id= cad>
+            <div class="button">
+              <input type="submit" value="Cadastrar"class= "cad">
             </div>
             
         </form>
