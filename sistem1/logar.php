@@ -16,19 +16,22 @@ if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['senha']) 
 
     if($resultado->rowCount() > 0){
         if( $senha === $dado["senha"] && $email === $dado["email"]){
-            $_SESSION['id'] = $dado['ID'];
+            $_SESSION['ID'] = $dado['ID'];
             $_SESSION['email'] = $dado['email'];
 
             header('Location: index.php');
+            // var_dump("AAAAAAAAAAAAAAAAAAAAAA");
             exit();
             
         } else {
-            header('Location: login.php');
+            // header('Location: login.php');
+            var_dump("BBBBBBBBBBBBBBBBBBBBBBBBBB");
             exit();
         }
        
     } else {
-        header('Location: login.php');
+        // header('Location: login.php');
+        var_dump("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
             exit();
     }
 }

@@ -4,6 +4,11 @@ if (!isset($_SESSION['id'])) {
     header('Location: login.php');
     exit();
 }
+ require 'conexao1.php';
+$sql= " SELECT * FROM carros";
+$resultado = $conexao1->prepare($sql);
+$resultado->execute();
+$carros = $resultado->fetchall(PDO:: FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -60,6 +65,44 @@ if (!isset($_SESSION['id'])) {
         </form>
          
     </div>
+
+
+   <?php 
+if (count($carros) > 0): ?>
+    <table>
+        <caption>Lista de Carros</caption>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Modelo</th>
+                <th>Ano</th>
+                <th>Status</th>
+                <th>Cor</th>
+                <th>Placa</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($carros as $carro): ?>
+                <tr>
+                    <td><?= htmlspecialchars($carro['ID']) ?></td>
+                    <td><?= htmlspecialchars($carro['modelo']) ?></td>
+                    <td><?= htmlspecialchars($carro['ano']) ?></td>
+                    <td><?= htmlspecialchars($carro['status']) ?></td>
+                    <td><?= htmlspecialchars($carro['cor']) ?></td>
+                    <td><?= htmlspecialchars($carro['placa']) ?></td>
+                    <td>
+                        <a href="editar.php?id=<?= $carro['ID'] ?>">Editar</a> |
+                        <a href="deletecar.php?id=<?= $carro['ID'] ?>" onclick="return confirm('Deseja excluir?')">Excluir</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php else: ?>
+    <h1>Você ainda não cadastrou nenhum veículo.</h1>
+<?php endif; ?>
+
 
 </body>
 </html>

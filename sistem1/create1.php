@@ -25,7 +25,7 @@
         $status = null;
         $cor = null;
         $placa = null;
-        
+        header("location: index1.php");
         } else {
         echo "Erro ao tentar efetivar cadastro";
         }

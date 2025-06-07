@@ -4,8 +4,8 @@ if (!isset($_SESSION['id'])) {
     header('Location: login.php');
     exit();
 }
-?> 
 
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,6 +57,8 @@ if (!isset($_SESSION['id'])) {
 <div id="nv">
   <p >NOSSOS VEÍCULOS</p>
 </div>
+
+
 
 
        
