@@ -83,21 +83,24 @@ if (count($carros) > 0): ?>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($carros as $carro): ?>
-                <tr>
-                    <td><?= htmlspecialchars($carro['ID']) ?></td>
-                    <td><?= htmlspecialchars($carro['modelo']) ?></td>
-                    <td><?= htmlspecialchars($carro['ano']) ?></td>
-                    <td><?= htmlspecialchars($carro['status']) ?></td>
-                    <td><?= htmlspecialchars($carro['cor']) ?></td>
-                    <td><?= htmlspecialchars($carro['placa']) ?></td>
-                    <td>
-                        <a href="editar.php?id=<?= $carro['ID'] ?>">Editar</a> |
-                        <a href="deletecar.php?id=<?= $carro['ID'] ?>" onclick="return confirm('Deseja excluir?')">Excluir</a>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
+           
+        <?php foreach ($carros as $carro): ?>
+    <tr>
+        <td><?= htmlspecialchars($carro['ID']) ?></td>
+        <td><?= htmlspecialchars($carro['modelo']) ?></td>
+        <td><?= htmlspecialchars($carro['ano']) ?></td>
+        <td><?= htmlspecialchars($carro['status']) ?></td>
+        <td><?= htmlspecialchars($carro['cor']) ?></td>
+        <td><?= htmlspecialchars($carro['placa']) ?></td>
+        <td>
+            <form method="POST" action="deletecar.php" onsubmit="return confirm('Tem certeza que deseja excluir este registro?');">
+                <input type="hidden" name="ID" value="<?= htmlspecialchars($carro['ID']) ?>"/> 
+                <button type="submit" id="excluir">Deletar🚮</button>
+            </form>
+        </td>
+    </tr>
+<?php endforeach; ?>
+
     </table>
 <?php else: ?>
     <h1>Você ainda não cadastrou nenhum veículo.</h1>

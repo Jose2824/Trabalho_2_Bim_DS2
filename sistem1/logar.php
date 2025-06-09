@@ -20,18 +20,16 @@ if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['senha']) 
             $_SESSION['email'] = $dado['email'];
 
             header('Location: index.php');
-            // var_dump("AAAAAAAAAAAAAAAAAAAAAA");
             exit();
             
         } else {
-            // header('Location: login.php');
-            var_dump("BBBBBBBBBBBBBBBBBBBBBBBBBB");
+            header('Location: login.php');
+    
             exit();
         }
        
     } else {
-        // header('Location: login.php');
-        var_dump("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
+        header('Location: login.php');
             exit();
     }
 }
