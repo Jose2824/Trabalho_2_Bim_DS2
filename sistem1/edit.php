@@ -4,6 +4,32 @@ if (!isset($_SESSION['ID'])) {
     header('Location: login.php');
     exit();
 }
+if ($conn->connect_error) {
+    die("Falha na conexão: " . $conn->connect_error);
+}
+
+// Pega o id do veículo via GET
+$id = $_GET['id'] ?? null;
+
+if (!$id) {
+    die("ID do veículo não informado.");
+}
+
+// Busca os dados do veículo
+$sql = "SELECT modelo, ano, status, cor, placa FROM veiculos WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows === 0) {
+    die("Veículo não encontrado.");
+}
+
+$veiculo = $result->fetch_assoc();
+
+$stmt->close();
+$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
