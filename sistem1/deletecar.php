@@ -1,6 +1,6 @@
  <!-- <?php
 session_start();
-if (!isset($_SESSION['id'])) {
+if (!isset($_SESSION['ID'])) {
     header('Location: login.php');
     exit();
 }
@@ -39,4 +39,5 @@ if (isset($_POST['ID']) && is_numeric($_POST['ID'])) {
 } else {
     echo "ID inválido ou não fornecido.";
 }
+
 ?>

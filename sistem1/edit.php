@@ -4,11 +4,6 @@ if (!isset($_SESSION['ID'])) {
     header('Location: login.php');
     exit();
 }
- require 'conexao1.php';
-$sql= " SELECT * FROM carros";
-$resultado = $conexao1->prepare($sql);
-$resultado->execute();
-$carros = $resultado->fetchall(PDO:: FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -36,7 +31,7 @@ $carros = $resultado->fetchall(PDO:: FETCH_ASSOC);
   </header>
 
     <div class="form">
-        <h1>Cadastro de Veículo</h1>
+        <h1>EDITAR</h1>
         <form action="create1.php" method="post">
             <label for="modelo">Modelo do Veículo</label>
             <br>
@@ -65,53 +60,3 @@ $carros = $resultado->fetchall(PDO:: FETCH_ASSOC);
         </form>
          
     </div>
-
-
-   <?php 
-if (count($carros) > 0): ?>
-    <table>
-        <caption>Seus Carros</caption>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Modelo</th>
-                <th>Ano</th>
-                <th>Status</th>
-                <th>Cor</th>
-                <th>Placa</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-           
-        <?php foreach ($carros as $carro): ?>
-    <tr>
-        <td><?= htmlspecialchars($carro['ID']) ?></td>
-        <td><?= htmlspecialchars($carro['modelo']) ?></td>
-        <td><?= htmlspecialchars($carro['ano']) ?></td>
-        <td><?= htmlspecialchars($carro['status']) ?></td>
-        <td><?= htmlspecialchars($carro['cor']) ?></td>
-        <td><?= htmlspecialchars($carro['placa']) ?></td>
-        <td id="actions">
-            <form method="POST" action="deletecar.php" onsubmit="return confirm('Tem certeza que deseja excluir este registro?');">
-                <input type="hidden" name="ID" value="<?= htmlspecialchars($carro['ID']) ?>"/> 
-                <button type="submit" class="btn btn-danger">
-                    <img src="assets/trash.svg" alt="trash" height: 100px;  width: 100px;>
-                    
-                </button>
-            </form>
-            <a class="editar"  href="edit.php">
-                <img src="assets/pencil-square.svg" alt="pencil" height: 100px;  width: 100px;>
-            </a>
-        </td>
-    </tr>
-<?php endforeach; ?>
-
-    </table>
-<?php else: ?>
-    <h1>Você ainda não cadastrou nenhum veículo.</h1>
-<?php endif; ?>
-
-
-</body>
-</html>
