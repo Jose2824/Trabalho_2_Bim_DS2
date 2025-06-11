@@ -113,14 +113,6 @@ if (!$carro) {
         </form>
          
     </div>
-    <!-- <h1>Editar Carro</h1>
-    <form method="post">
-        Modelo: <input type="text" name="modelo" value="<?php echo htmlspecialchars($carro['modelo']); ?>"><br>
-        Ano: <input type="number" name="ano" value="<?php echo htmlspecialchars($carro['ano']); ?>"><br>
-        Status: <input type="text" name="status" value="<?php echo htmlspecialchars($carro['status']); ?>"><br>
-        Cor: <input type="text" name="cor" value="<?php echo htmlspecialchars($carro['cor']); ?>"><br>
-        Placa: <input type="text" name="placa" value="<?php echo htmlspecialchars($carro['placa']); ?>"><br>
-        <button type="submit">Salvar</button>
-    </form> -->
+
 </body>
 </html>
