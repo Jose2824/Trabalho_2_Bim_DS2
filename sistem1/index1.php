@@ -94,14 +94,13 @@ if (count($carros) > 0): ?>
         <td><?= htmlspecialchars($carro['placa']) ?></td>
         <td id="actions">
 
-            <a href="edit1.php?ID=<?php echo $carro['ID']; ?>" id="edit"   >Editar|</a>
+            <a href="formEdit.php?ID=<?php echo $carro['ID']; ?>" id="edit"   >Editar|</a>
             <form method="POST" action="deletecar.php" onsubmit="return confirm('Tem certeza que deseja excluir este registro?');">
                 <input type="hidden" name="ID" value="<?= htmlspecialchars($carro['ID']) ?>"/> 
                 <button type="submit" class="btn">
                     <p>Deletar</p>
                 </button>
             </form>
-                <!-- <img src="assets/pencil-43.png" alt="pencil"> -->
             </a>
         </td>
     </tr>
