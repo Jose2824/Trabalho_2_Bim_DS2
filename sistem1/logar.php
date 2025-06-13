@@ -16,7 +16,7 @@ if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['senha']) 
 
     if($resultado->rowCount() > 0){
         if( $senha === $dado["senha"] && $email === $dado["email"]){
-            $_SESSION['ID'] = $dado['ID'];
+            $_SESSION['id'] = $dado['id'];
             $_SESSION['email'] = $dado['email'];
 
             header('Location: index.php');

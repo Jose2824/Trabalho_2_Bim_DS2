@@ -1,16 +1,16 @@
  <!-- <?php
 session_start();
-if (!isset($_SESSION['ID'])) {
+if (!isset($_SESSION['id'])) {
     header('Location: login.php');
     exit();
 }
-if (isset($_POST['ID'])) {
-    $ID = $_POST['ID'];
+if (isset($_POST['id'])) {
+    $id = $_POST['id'];
 
 require "conexao1.php";
-$sql= " DELETE FROM carros WHERE ID = :ID ";
+$sql= " DELETE FROM carros WHERE id = :id ";
 $resultado = $conexao1->prepare($sql);
-$resultado->bindValue(":ID",$ID);
+$resultado->bindValue(":id",$id);
 $resultado->execute();
 header("location: index1.php");
 exit();
@@ -26,12 +26,12 @@ if (!isset($_SESSION['id'])) {
 require "conexao1.php";
 
 // Verifica se o ID foi enviado via POST e é um número
-if (isset($_POST['ID']) && is_numeric($_POST['ID'])) {
-    $ID = intval($_POST['ID']);
+if (isset($_POST['id']) && is_numeric($_POST['id'])) {
+    $id = intval($_POST['id']);
 
-    $sql = "DELETE FROM carros WHERE ID = :ID";
+    $sql = "DELETE FROM carros WHERE id = :id";
     $resultado = $conexao1->prepare($sql);
-    $resultado->bindValue(":ID", $ID, PDO::PARAM_INT);
+    $resultado->bindValue(":id", $id, PDO::PARAM_INT);
     $resultado->execute();
 
     header("Location: index1.php");

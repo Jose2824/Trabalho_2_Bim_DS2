@@ -1,6 +1,6 @@
  <?php
 session_start();
-if (!isset($_SESSION['ID'])) {
+if (!isset($_SESSION['id'])) {
     header('Location: login.php');
     exit();
 }
@@ -86,7 +86,7 @@ if (count($carros) > 0): ?>
            
         <?php foreach ($carros as $carro): ?>
     <tr>
-        <td><?= htmlspecialchars($carro['ID']) ?></td>
+        <td><?= htmlspecialchars($carro['id']) ?></td>
         <td><?= htmlspecialchars($carro['modelo']) ?></td>
         <td><?= htmlspecialchars($carro['ano']) ?></td>
         <td><?= htmlspecialchars($carro['status']) ?></td>
@@ -94,9 +94,9 @@ if (count($carros) > 0): ?>
         <td><?= htmlspecialchars($carro['placa']) ?></td>
         <td id="actions">
 
-            <a href="formEdit.php?ID=<?php echo $carro['ID']; ?>" id="edit"   >Editar|</a>
+            <a href="formEdit.php?ID=<?php echo $carro['id']; ?>" id="edit"   >Editar|</a>
             <form method="POST" action="deletecar.php" onsubmit="return confirm('Tem certeza que deseja excluir este registro?');">
-                <input type="hidden" name="ID" value="<?= htmlspecialchars($carro['ID']) ?>"/> 
+                <input type="hidden" name="ID" value="<?= htmlspecialchars($carro['id']) ?>"/> 
                 <button type="submit" class="btn">
                     <p>Deletar</p>
                 </button>

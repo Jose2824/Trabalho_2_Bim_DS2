@@ -27,14 +27,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $placa  = $_POST['placa'];
 
     // Usando a conexão correta ($conexao1)
-    $stmt = $conexao1->prepare("UPDATE carros SET modelo = :modelo, ano = :ano, status = :status, cor = :cor, placa = :placa WHERE ID = :ID");
+    $stmt = $conexao1->prepare("UPDATE carros SET modelo = :modelo, ano = :ano, status = :status, cor = :cor, placa = :placa WHERE id = :id");
     $stmt->execute([
         ':modelo' => $modelo,
         ':ano'    => $ano,
         ':status' => $status,
         ':cor'    => $cor,
         ':placa'  => $placa,
-        ':ID'     => $ID
+        ':id'     => $id
     ]);
 
     echo "Carro atualizado com sucesso! <a href='index.php'>Voltar</a>";
@@ -42,8 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Busca os dados do carro atual (apenas se o ID for válido)
-$stmt = $conexao1->prepare("SELECT * FROM carros WHERE ID = :ID");
-$stmt->execute([':ID' => $ID]);
+$stmt = $conexao1->prepare("SELECT * FROM carros WHERE id = :id");
+$stmt->execute([':id' => $id]);
 $carro = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$carro) {
