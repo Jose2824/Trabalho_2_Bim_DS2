@@ -3,28 +3,34 @@
     $nome = $_POST["nome"];
     $cpf = $_POST["cpf"];
     $cnh = $_POST["cnh"];
-    $cor = $_POST["cor"];
-    $placa = $_POST["placa"];
+    $cep = $_POST["cep"];
+    $data_nasc = $_POST["data_nasc"];
+    $email = $_POST["email"];
+    $senha = $_POST["senha"];
     
-    if (isset($_POST["modelo"]) && $modelo != "") {
+    if (isset($_POST["cpf"]) && $cpf != "") {
         try {
-        $stmt = $conexao1->prepare("INSERT INTO carros ( modelo,ano,status, cor,placa) VALUES
-        (:modelo,:ano,:status,:cor,:placa)");
-        $stmt->bindValue(":modelo", $modelo);
-        $stmt->bindValue(":ano", $ano);
-        $stmt->bindValue(":status", $status);
-        $stmt->bindValue(":cor", $cor);
-        $stmt->bindValue(":placa", $placa);
+        $stmt = $conexao2->prepare("INSERT INTO motoristas ( nome,cpf,cnh,cep,data_nasc,email,senha) VALUES
+        (:nome,:cpf,:cnh,:cep,:data_nasc,:email,:senha)");
+        $stmt->bindValue(":nome", $nome);
+        $stmt->bindValue(":cpf", $cpf);
+        $stmt->bindValue(":cnh", $cnh);
+        $stmt->bindValue(":cep", $cep);
+        $stmt->bindValue(":data_nasc", $data_nasc);
+        $stmt->bindValue(":email", $email);
+        $stmt->bindValue(":senha", $senha);
 
         if ($stmt->execute()) {
         if ($stmt->rowCount() > 0) {
         echo" Dados cadastrados com sucesso!";
         $id = null;
-        $modelo = null;
-        $ano = null;
-        $status = null;
-        $cor = null;
-        $placa = null;
+        $nome = null;
+        $cpf = null;
+        $cnh = null;
+        $cep = null;
+        $data_nasc = null;
+        $email = null;
+        $senha = null;
         header("location: index1.php");
         } else {
         echo "Erro ao tentar efetivar cadastro";
