@@ -1,5 +1,5 @@
 <?php
-    require_once 'conexao2.php';
+    require_once '../conexao1.php';
     $nome = $_POST["nome"];
     $cpf = $_POST["cpf"];
     $cnh = $_POST["cnh"];
@@ -8,9 +8,9 @@
     $email = $_POST["email"];
     $senha = $_POST["senha"];
     
-    if (isset($_POST["cpf"]) && $cpf != "") {
+    if (isset($_POST["nome"]) && $nome != "") {
         try {
-        $stmt = $conexao2->prepare("INSERT INTO motoristas ( nome,cpf,cnh,cep,data_nasc,email,senha) VALUES
+        $stmt = $conexao1->prepare("INSERT INTO motoristas ( nome,cpf,cnh,cep,data_nasc,email,senha) VALUES
         (:nome,:cpf,:cnh,:cep,:data_nasc,:email,:senha)");
         $stmt->bindValue(":nome", $nome);
         $stmt->bindValue(":cpf", $cpf);
@@ -31,7 +31,7 @@
         $data_nasc = null;
         $email = null;
         $senha = null;
-        header("location: index1.php");
+        header("location: ../index1.php");
         } else {
         echo "Erro ao tentar efetivar cadastro";
         }

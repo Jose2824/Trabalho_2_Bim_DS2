@@ -44,7 +44,7 @@
             <br>
             <label for="data_nasc">Data de Nascimento</label>
             <br>
-            <input type="text" id="data_nasc" name="data_nasc" placeholder="Digite sua Data de nascimento" required  class= input>
+            <input type="date" id="data_nasc" name="data_nasc" placeholder="Digite sua Data de nascimento" required  class= input>
             <br>
             <label for="email">Digite um e-mail</label>
             <br>

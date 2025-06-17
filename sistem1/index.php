@@ -28,7 +28,7 @@ if (!isset($_SESSION['id'])) {
                     <div class="nreserv">
                         <a href="https://api.whatsapp.com/send/?phone=5588999244044&text=Ol%C3%A1%2C+quero+agendar+um+passeio&type=phone_number&app_absent=0">Reservar no Whatsapp</a id=aor> 
                     </div>
-            </div>
+                </div>
             
                    
                 </div>
@@ -57,8 +57,11 @@ if (!isset($_SESSION['id'])) {
 <div id="nv">
   <p >NOSSOS VEÍCULOS</p>
 </div>
+<div id="enterDriver">
+  <a href="crud_motoristas/cad_motor.php"><img src="assets/Buggy-Vivo.png" alt="bv">Quer se juntar a nós ?</a>
 
-
+</div>
+<img src="assets/buggyCumbuco.webp" alt="">
 
 
        
