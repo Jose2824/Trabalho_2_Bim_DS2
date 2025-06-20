@@ -245,7 +245,12 @@ button:focus {
 
 
 }
-#enterDriver {
-   
+.btn{
+    display: flex;
+}
+.btn:hover{
+    color: #000;
+    text-decoration: underline;
+
 
 }

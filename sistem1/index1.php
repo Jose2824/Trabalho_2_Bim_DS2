@@ -68,48 +68,67 @@ $carros = $resultado->fetchall(PDO:: FETCH_ASSOC);
 
 
    <?php 
-if (count($carros) > 0): ?>
-    <table>
-        <caption>Seus Carros</caption>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Modelo</th>
-                <th>Ano</th>
-                <th>Status</th>
-                <th>Cor</th>
-                <th>Placa</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
+
+
+if (count($carros) > 0){ ?>
+     <table>
+         <caption>Seus Carros</caption>
+         <thead>
+             <tr>
+                 <th>ID</th>
+                 <th>Modelo</th>
+                 <th>Ano</th>
+                 <th>Status</th>
+                 <th>Cor</th>
+                 <th>Placa</th>
+                 <th>Ações</th>
+             </tr>
+         </thead>
+           <tbody>
            
-        <?php foreach ($carros as $carro): ?>
-    <tr>
-        <td><?= htmlspecialchars($carro['id']) ?></td>
-        <td><?= htmlspecialchars($carro['modelo']) ?></td>
-        <td><?= htmlspecialchars($carro['ano']) ?></td>
-        <td><?= htmlspecialchars($carro['status']) ?></td>
-        <td><?= htmlspecialchars($carro['cor']) ?></td>
-        <td><?= htmlspecialchars($carro['placa']) ?></td>
-        <td id="actions">
+         <?php foreach ($carros as $carro){
+              echo"<tr>";
+                echo"<td>". $carro['id']. "</td>"; 
+                echo"<td>". $carro['modelo']. "</td>"; 
+                echo"<td>". $carro['ano']. "</td>"; 
+                echo"<td>". $carro['status']. "</td>"; 
+                echo"<td>". $carro['cor']. "</td>"; 
+                echo"<td>". $carro['placa']. "</td>"; 
+                echo"<td>
+                    <form method='POST' action='deletecar.php' onsubmit='return confirm(\"Tem certeza que deseja excluir este registro?\");'>
+                        <input type='hidden' name='id' value='" .$carro['id'] ."'/> 
+                        <input type='hidden' name='placa' value='" .$carro['placa'] ."'/> 
+                        <button type = 'submit' class= 'btn'>Deletar</button>
+                    </form>
+                    <a href='formEdit.php?id=" . $carro['id'] . "' id='edit'>Editar</a>
+                   </td>";
+                    
+              echo"</tr>";
+  
+ }
+ ?>
+           </tbody>
 
-            <a href="formEdit.php?ID=<?php echo $carro['id']; ?>" id="edit"   >Editar|</a>
-            <form method="POST" action="deletecar.php" onsubmit="return confirm('Tem certeza que deseja excluir este registro?');">
-                <input type="hidden" name="ID" value="<?= htmlspecialchars($carro['id']) ?>"/> 
-                <button type="submit" class="btn">
-                    <p>Deletar</p>
-                </button>
-            </form>
-            </a>
-        </td>
-    </tr>
-<?php endforeach; ?>
+        
 
-    </table>
-<?php else: ?>
-    <h1>Você ainda não cadastrou nenhum veículo.</h1>
-<?php endif; ?>
+             <!-- <a href="formEdit.php?ID=<?php echo $carro['id']; ?>" id="edit"   >Editar|</a>
+             <form method="POST" action="deletecar.php" onsubmit="return confirm('Tem certeza que deseja excluir este registro?');">
+                 <input type="hidden" name="ID" value="<?= htmlspecialchars($carro['id']) ?>"/> 
+                 <button type="submit" class="btn">
+                     <p>Deletar</p>
+                 </button> -->
+             </form>
+             </a>
+         </td>
+     </tr>
+
+
+     </table>
+<?php
+ }else{
+    echo "<h1>Nenhum Veículo cadastrado.</h1>";
+ }
+ ?>
 
 
 </body>

@@ -1,52 +1,40 @@
 <?php
+require "conexao1.php";
 
-try {
-    // Conexão com o banco de dados
-    $conexao1 = new PDO("mysql:host=localhost;dbname=MB;charset=utf8mb4", "root", "",
-    [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-    ]);
-} catch (PDOException $erro) {
-    echo "Erro na conexão: " . $erro->getMessage();
-}
-
-// Verifica se um ID foi passado via GET
-if (!isset($_GET['ID'])) {
-    die("ID não especificado.");
-}
-
-$ID = (int) $_GET['ID'];
-
-// Verifica se o formulário foi enviado (atualização)
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// Verificar se os dados foram enviados via POST
+if (isset($_POST['id']) && !empty($_POST['id'])) {
+    $id = $_POST['id'];
     $modelo = $_POST['modelo'];
-    $ano    = $_POST['ano'];
+    $ano = $_POST['ano'];
     $status = $_POST['status'];
-    $cor    = $_POST['cor'];
-    $placa  = $_POST['placa'];
+    $cor = $_POST['cor'];
+    $placa = $_POST['placa'];
 
-    // Usando a conexão correta ($conexao1)
-    $stmt = $conexao1->prepare("UPDATE carros SET modelo = :modelo, ano = :ano, status = :status, cor = :cor, placa = :placa WHERE id = :id");
-    $stmt->execute([
-        ':modelo' => $modelo,
-        ':ano'    => $ano,
-        ':status' => $status,
-        ':cor'    => $cor,
-        ':placa'  => $placa,
-        ':id'     => $id
-    ]);
+    try {
+        // Preparar o UPDATE
+        $sql = "UPDATE carros SET modelo = :modelo, ano = :ano, status = :status, cor = :cor, placa = :placa WHERE id = :id";
+        $stmt = $conexao1->prepare($sql);
 
-    echo "Carro atualizado com sucesso! <a href='index.php'>Voltar</a>";
-    exit;
-}
+        // Fazer o bind dos parâmetros
+        $stmt->bindParam(':modelo', $modelo);
+        $stmt->bindParam(':ano', $ano);
+        $stmt->bindParam(':status', $status);
+        $stmt->bindParam(':cor', $cor);
+        $stmt->bindParam(':placa', $placa);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
-// Busca os dados do carro atual (apenas se o ID for válido)
-$stmt = $conexao1->prepare("SELECT * FROM carros WHERE id = :id");
-$stmt->execute([':id' => $id]);
-$carro = $stmt->fetch(PDO::FETCH_ASSOC);
+        // Executar
+        if ($stmt->execute()) {
+            echo "<h2>Veículo atualizado com sucesso!</h2>";
+            echo "<a href='index1.php'>Voltar para a lista</a>";
+        } else {
+            echo "<h2>Erro ao atualizar o veículo.</h2>";
+        }
 
-if (!$carro) {
-    die("Carro não encontrado.");
+    } catch (PDOException $e) {
+        echo "Erro: " . $e->getMessage();
+    }
+} else {
+    echo "<h2>ID não especificado para edição.</h2>";
 }
 ?>
