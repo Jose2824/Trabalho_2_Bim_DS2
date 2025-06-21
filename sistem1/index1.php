@@ -27,6 +27,7 @@ $carros = $resultado->fetchall(PDO:: FETCH_ASSOC);
                 <a href="index.php">Home</a>
                 <a href="login.php">Login</a>
                 <a href="index1.php">Agendamentos</a>
+                <a href="logout.php">Voltar para Clientes</a>
                 <a href="logout.php">Sair da Conta 🚪</a>
             </div>
               

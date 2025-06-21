@@ -254,3 +254,15 @@ button:focus {
 
 
 }
+.cad_motor{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 600px;
+    flex-direction: column;
+    margin-top: 50px;
+    border-radius: 15px;
+
+}

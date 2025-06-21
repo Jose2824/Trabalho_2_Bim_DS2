@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Major Buggy</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 <body>
    
 
      <header>
         <div class= "nav">
-            <img src="assets/logoMB.png" alt="logo" class="logo">
+            <img src="../assets/logoMB.png" alt="logo" class="logo">
               <div id= hla>
-                <a href="index.php">Home</a>
-                <a href="login.php">Login</a>
-                <a href="index1.php">Agendamentos</a>
-                <a href="logout.php">Sair da Conta 🚪</a>
+                <a href="../index.php">Home</a>
+                <a href="login_motor.php">Login</a>
+                <a href="#">Agendamentos</a>
+
+                <a href="../logout.php">Sair da Conta 🚪</a>
             </div>
               
 
@@ -23,7 +24,7 @@
         </div>
   </header>
 
-    <div class="form">
+    <div class="cad_motor">
         <h1>Cadastro de Motorista</h1>
         <form action="create2.php" method="post">
             <label for="nome">Nome do Motorista</label>

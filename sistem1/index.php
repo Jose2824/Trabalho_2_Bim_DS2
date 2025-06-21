@@ -4,6 +4,11 @@ if (!isset($_SESSION['id'])) {
     header('Location: login.php');
     exit();
 }
+if (isset($_SESSION['email']) && $_SESSION['email'] == 'jose@marcos.com') {
+    header('Location: crud_motoristas/readMotor.php');
+    exit();
+}
+
 
 ?> 
 
@@ -22,7 +27,8 @@ if (!isset($_SESSION['id'])) {
               <div id= hla>
                 <a href="#">Home</a>
                 <a href="login.php">Login</a>
-                <a href="index1.php">Agendamentos</a>
+                <a href="#">Agendamentos</a>
+                <a href="crud_motoristas/login_motor.php">Painel Motorista</a>
                 <a href="logout.php">Sair da Conta 🚪</a>
                 <div class= "reserv">
                     <div class="nreserv">
@@ -58,7 +64,7 @@ if (!isset($_SESSION['id'])) {
   <p >NOSSOS VEÍCULOS</p>
 </div>
 <div id="enterDriver">
-  <a href="crud_motoristas/cad_motor.php"><img src="assets/Buggy-Vivo.png" alt="bv">Quer se juntar a nós ?</a>
+  
 
 </div>
 <img src="assets/buggyCumbuco.webp" alt="">
