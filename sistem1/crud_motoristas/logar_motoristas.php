@@ -16,7 +16,7 @@ if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['senha']) 
             $_SESSION['id'] = $dado['id'];
             $_SESSION['email'] = $dado['email'];
 
-            header('Location: ../index1.php');
+            header('Location: readMotor.php');
             exit();
             
         } else {

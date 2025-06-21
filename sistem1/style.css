@@ -266,3 +266,20 @@ button:focus {
     border-radius: 15px;
 
 }
+#update{
+
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    flex-direction: column;
+    margin-top: 50px;
+    border: 5px solid red; 
+    font-weight: bold;
+
+
+
+
+}
