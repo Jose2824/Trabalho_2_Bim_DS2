@@ -31,7 +31,7 @@
         $data_nasc = null;
         $email = null;
         $senha = null;
-        header("location: ../index1.php");
+        header("location: readMotor.php");
         } else {
         echo "Erro ao tentar efetivar cadastro";
         }

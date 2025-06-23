@@ -56,7 +56,7 @@
             <input type="password" id="senha" name="senha" placeholder="Digite uma senha" required  class= input>
             <br>
             <div class= "button">
-            <input type="submit" value="Cadastrar Veículo" class= "cad">
+            <input type="submit" value="Cadastrar Motorista" class= "cad">
             </div>
             
         </form>

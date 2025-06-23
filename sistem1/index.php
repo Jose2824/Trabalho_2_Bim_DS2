@@ -25,11 +25,11 @@ if (isset($_SESSION['email']) && $_SESSION['email'] == 'jose@marcos.com') {
         <div class= "nav">
             <img src="assets/logoMB.png" alt="logo" class="logo">
               <div id= hla>
-                <a href="#">Home</a>
+                <a href="index.php">Home</a>
                 <a href="login.php">Login</a>
-                <a href="#">Agendamentos</a>
+                <a href="agendamentos.php">Agendamentos</a>
                 <a href="crud_motoristas/login_motor.php">Painel Motorista</a>
-                <a href="logout.php">Sair da Conta 🚪</a>
+                <a href="logout.php">Sair🚪</a>
                 <div class= "reserv">
                     <div class="nreserv">
                         <a href="https://api.whatsapp.com/send/?phone=5588999244044&text=Ol%C3%A1%2C+quero+agendar+um+passeio&type=phone_number&app_absent=0">Reservar no Whatsapp</a id=aor> 
