@@ -11,8 +11,8 @@
             <img src="../assets/logoMB.png" alt="logo" class="logo">
               <div id= hla>
                 <a href="../index.php">Home</a>
-                <a href="login.php">Login</a>
-                <a href="#">Agendamentos</a>
+                <a href="../login.php">Login</a>
+                <a href="../agendamentos.php">Agendamentos</a>
             </div>
               
     

@@ -29,7 +29,7 @@ if (isset($_POST['id']) && !empty($_POST['id'])) {
         // Executar
         if ($stmt->execute()) {
             echo "<h2>Dados do Motorista atualizado com sucesso!</h2>";
-            echo "<a href='../index1.php'>Voltar para a lista</a>";
+            echo "<a href='readMotor.php'>Voltar para a lista</a>";
         } else {
             echo "<h2>Erro ao atualizar o veículo.</h2>";
         }

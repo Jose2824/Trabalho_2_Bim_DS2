@@ -24,11 +24,11 @@ $motoristas = $resultado->fetchall(PDO:: FETCH_ASSOC);
         <div class= "nav">
             <img src="../assets/logoMB.png" alt="logo" class="logo">
               <div id= hla>
-                <a href="index.php">Home</a>
+                <a href="../index.php">Home</a>
                 <a href="../index1.php">Meus Carros</a>
                 <a href="../agendamentos.php">Agendamentos</a>
                 <a href="../index.php">Voltar para Clientes</a>
-                <a href="logout.php">Sair da Conta 🚪</a>
+                <a href="logout.php">Sair🚪</a>
             </div>
               
 

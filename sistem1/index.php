@@ -25,7 +25,7 @@ if (isset($_SESSION['email']) && $_SESSION['email'] == 'jose@marcos.com') {
         <div class= "nav">
             <img src="assets/logoMB.png" alt="logo" class="logo">
               <div id= hla>
-                <a href="index.php">Home</a>
+                <a href="#">Home</a>
                 <a href="login.php">Login</a>
                 <a href="agendamentos.php">Agendamentos</a>
                 <a href="crud_motoristas/login_motor.php">Painel Motorista</a>

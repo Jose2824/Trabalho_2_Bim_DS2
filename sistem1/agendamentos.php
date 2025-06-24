@@ -18,7 +18,7 @@ if (!isset($_SESSION['id'])) {
         <div class= "nav">
             <img src="assets/logoMB.png" alt="logo" class="logo">
               <div id= hla>
-                <a href="#">Home</a>
+                <a href="index.php">Home</a>
                 <a href="login.php">Login</a>
                 <a href="agendamentos.php">Agendamentos</a>
                 <a href="crud_motoristas/login_motor.php">Painel Motorista</a>

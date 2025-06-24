@@ -13,7 +13,7 @@
               <div id= hla>
                 <a href="#">Home</a>
                 <a href="login.php">Login</a>
-                <a href="#">Agendamentos</a>
+                <a href="agendamentos.php">Agendamentos</a>
             </div>
               
 

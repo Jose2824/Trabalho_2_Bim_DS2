@@ -14,9 +14,9 @@
               <div id= hla>
                 <a href="../index.php">Home</a>
                 <a href="login_motor.php">Login</a>
-                <a href="#">Agendamentos</a>
+                <a href="../agendamentos.php">Agendamentos</a>
 
-                <a href="../logout.php">Sair da Conta 🚪</a>
+                <a href="../logout.php">Sair🚪</a>
             </div>
               
 
@@ -56,7 +56,7 @@
             <input type="password" id="senha" name="senha" placeholder="Digite uma senha" required  class= input>
             <br>
             <div class= "button">
-            <input type="submit" value="Cadastrar Motorista" class= "cad">
+            <input type="submit" value="Cadastrar Veículo" class= "cad">
             </div>
             
         </form>

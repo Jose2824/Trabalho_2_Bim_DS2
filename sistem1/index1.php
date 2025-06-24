@@ -28,7 +28,7 @@ $carros = $resultado->fetchall(PDO:: FETCH_ASSOC);
                 <a href="login.php">Login</a>
                 <a href="crud_motoristas/readMotor.php">meus Motoristas</a>
                 <a href="logout.php">Voltar para Clientes</a>
-                <a href="logout.php">Sair da Conta 🚪</a>
+                <a href="logout.php">Sair🚪</a>
             </div>
               
 
