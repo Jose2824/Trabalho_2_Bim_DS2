@@ -1,50 +1,55 @@
+
 <?php
-    require_once '../conexao1.php';
-    $nome = $_POST["nome"];
-    $cpf = $_POST["cpf"];
-    $cnh = $_POST["cnh"];
-    $cep = $_POST["cep"];
-    $data_nasc = $_POST["data_nasc"];
-    $email = $_POST["email"];
-    $senha = $_POST["senha"];
-    
-    if (isset($_POST["nome"]) && $nome != "") {
-        try {
-        $stmt = $conexao1->prepare("INSERT INTO motoristas ( nome,cpf,cnh,cep,data_nasc,email,senha) VALUES
-        (:nome,:cpf,:cnh,:cep,:data_nasc,:email,:senha)");
+require_once '../conexao1.php';
+
+$nome = $_POST["nome"];
+$cpf = $_POST["cpf"];
+$cnh = $_POST["cnh"];
+$cep = $_POST["cep"];
+$data_nasc = $_POST["data_nasc"];
+$email = $_POST["email"];
+$senha = $_POST["senha"];
+
+if (isset($_POST["nome"]) && $nome != "") {
+
+    // Hashear a senha antes de salvar
+    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+
+    try {
+        $stmt = $conexao1->prepare("INSERT INTO motoristas (nome, cpf, cnh, cep, data_nasc, email, senha) 
+                                    VALUES (:nome, :cpf, :cnh, :cep, :data_nasc, :email, :senha)");
+
         $stmt->bindValue(":nome", $nome);
         $stmt->bindValue(":cpf", $cpf);
         $stmt->bindValue(":cnh", $cnh);
         $stmt->bindValue(":cep", $cep);
         $stmt->bindValue(":data_nasc", $data_nasc);
         $stmt->bindValue(":email", $email);
-        $stmt->bindValue(":senha", $senha);
+        $stmt->bindValue(":senha", $senhaHash);  // Usar o hash aqui
 
         if ($stmt->execute()) {
-        if ($stmt->rowCount() > 0) {
-        echo" Dados cadastrados com sucesso!";
-        $id = null;
-        $nome = null;
-        $cpf = null;
-        $cnh = null;
-        $cep = null;
-        $data_nasc = null;
-        $email = null;
-        $senha = null;
-        header("location: ../index1.php");
+            if ($stmt->rowCount() > 0) {
+                echo "Dados cadastrados com sucesso!";
+                // Limpar variáveis
+                $id = null;
+                $nome = null;
+                $cpf = null;
+                $cnh = null;
+                $cep = null;
+                $data_nasc = null;
+                $email = null;
+                $senha = null;
+
+                header("Location: readMotor.php");
+                exit();
+            } else {
+                echo "Erro ao tentar efetivar cadastro";
+            }
         } else {
-        echo "Erro ao tentar efetivar cadastro";
+            throw new PDOException("Erro: Não foi possível executar a declaração SQL");
         }
-    }else {
-        throw new PDOException("Erro: Não foi possível executar a declaração
-        sql");
-        }
-        } catch (PDOException $erro) {
+    } catch (PDOException $erro) {
         echo "Erro: " . $erro->getMessage();
-        }
-        }
-
-
-
-
+    }
+}
 ?>
