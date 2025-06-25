@@ -12,7 +12,7 @@ $senha = $_POST["senha"];
 
 if (isset($_POST["nome"]) && $nome != "") {
 
-    // Hashear a senha antes de salvar
+
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
     try {
@@ -25,12 +25,12 @@ if (isset($_POST["nome"]) && $nome != "") {
         $stmt->bindValue(":cep", $cep);
         $stmt->bindValue(":data_nasc", $data_nasc);
         $stmt->bindValue(":email", $email);
-        $stmt->bindValue(":senha", $senhaHash);  // Usar o hash aqui
+        $stmt->bindValue(":senha", $senhaHash); 
 
         if ($stmt->execute()) {
             if ($stmt->rowCount() > 0) {
                 echo "Dados cadastrados com sucesso!";
-                // Limpar variáveis
+
                 $id = null;
                 $nome = null;
                 $cpf = null;

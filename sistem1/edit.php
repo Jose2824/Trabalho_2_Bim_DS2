@@ -1,7 +1,7 @@
 <?php
 require "conexao1.php";
 
-// Verificar se os dados foram enviados via POST
+
 if (isset($_POST['id']) && !empty($_POST['id'])) {
     $id = $_POST['id'];
     $modelo = $_POST['modelo'];
@@ -11,11 +11,11 @@ if (isset($_POST['id']) && !empty($_POST['id'])) {
     $placa = $_POST['placa'];
 
     try {
-        // Preparar o UPDATE
+
         $sql = "UPDATE carros SET modelo = :modelo, ano = :ano, status = :status, cor = :cor, placa = :placa WHERE id = :id";
         $stmt = $conexao1->prepare($sql);
 
-        // Fazer o bind dos parâmetros
+
         $stmt->bindParam(':modelo', $modelo);
         $stmt->bindParam(':ano', $ano);
         $stmt->bindParam(':status', $status);
@@ -23,7 +23,7 @@ if (isset($_POST['id']) && !empty($_POST['id'])) {
         $stmt->bindParam(':placa', $placa);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
-        // Executar
+
         if ($stmt->execute()) {
             echo "<h2>Veículo atualizado com sucesso!</h2>";
             echo "<a href='index1.php'>Voltar para a lista</a>";

@@ -8,7 +8,7 @@ if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['senha']) 
     $email = $_POST["email"];
     $senha = $_POST["senha"];
 
-    // Agora vamos buscar apenas pelo email (sem colocar a senha na query)
+
     $sql = "SELECT * FROM usuario WHERE email = :email LIMIT 1";
     $resultado = $conn->prepare($sql);
     $resultado->bindValue(":email", $email);
@@ -17,7 +17,7 @@ if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['senha']) 
     if ($resultado->rowCount() > 0) {
         $dado = $resultado->fetch(PDO::FETCH_ASSOC);
 
-        // Verificar se a senha digitada bate com o hash do banco
+
         if (password_verify($senha, $dado["senha"])) {
             $_SESSION['id'] = $dado['id'];
             $_SESSION['email'] = $dado['email'];
@@ -25,12 +25,11 @@ if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['senha']) 
             header('Location: index.php');
             exit();
         } else {
-            // Senha incorreta
+            
             header('Location: login.php?erro=senha');
             exit();
         }
     } else {
-        // Usuário não encontrado
         header('Location: login.php?erro=usuario');
         exit();
     }

@@ -6,7 +6,7 @@ if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['senha']) 
     $email = $_POST["email"];
     $senha = $_POST["senha"];
 
-    // Hashear a senha
+
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO usuario (email, senha) VALUES (:email, :senha)";

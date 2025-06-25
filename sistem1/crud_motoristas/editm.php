@@ -1,7 +1,7 @@
 <?php
 require "../conexao1.php";
 
-// Verificar se os dados foram enviados via POST
+
 if (isset($_POST['id']) && !empty($_POST['id'])) {
     $id = $_POST['id'];
     $nome = $_POST['nome'];
@@ -12,11 +12,11 @@ if (isset($_POST['id']) && !empty($_POST['id'])) {
     $email= $_POST['email'];
     $senha= $_POST['senha'];
     try {
-        // Preparar o UPDATE
+
         $sql = "UPDATE motoristas SET nome = :nome, cpf = :cpf, cnh = :cnh, cep = :cep, data_nasc = :data_nasc, email = :email, senha = :senha WHERE id = :id";
         $stmt = $conexao1->prepare($sql);
 
-        // Fazer o bind dos parâmetros
+
         $stmt->bindParam(':nome', $nome);
         $stmt->bindParam(':cpf', $cpf);
         $stmt->bindParam(':cnh', $cnh);
@@ -26,7 +26,7 @@ if (isset($_POST['id']) && !empty($_POST['id'])) {
         $stmt->bindParam(':senha', $senha);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
-        // Executar
+
         if ($stmt->execute()) {
             echo "<h2>Dados do Motorista atualizado com sucesso!</h2>";
             echo "<a href='readMotor.php'>Voltar para a lista</a>";

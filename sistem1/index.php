@@ -4,10 +4,6 @@ if (!isset($_SESSION['id'])) {
     header('Location: login.php');
     exit();
 }
-if (isset($_SESSION['email']) && $_SESSION['email'] == 'jose@marcos.com') {
-    header('Location: crud_motoristas/readMotor.php');
-    exit();
-}
 
 
 ?> 
@@ -68,6 +64,22 @@ if (isset($_SESSION['email']) && $_SESSION['email'] == 'jose@marcos.com') {
 
 </div>
 <img src="assets/buggyCumbuco.webp" alt="">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<img src="assets/footer.png" alt="footer" width:"1440px">
 
 
        
@@ -80,7 +92,7 @@ if (isset($_SESSION['email']) && $_SESSION['email'] == 'jose@marcos.com') {
     if (msg) {
       msg.classList.add('oculto');
     }
-  }, 3000); // 3 segundos
+  }, 3000);
 
   
 </script>

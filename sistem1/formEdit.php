@@ -20,7 +20,7 @@ require 'conexao1.php';
                 <a href="index.php">Home</a>
                 <a href="login.php">Login</a>
                 <a href="agendamentos.php">Agendamentos</a>
-                <a href="logout.php">Sair da Conta 🚪</a>
+                <a href="logout.php">Sair🚪</a>
             </div>
         </div>
     </header>
@@ -33,7 +33,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     try {
-        // Consulta segura com prepared statement
+
         $sql = "SELECT * FROM carros WHERE id = :id";
         $stmt = $conexao1->prepare($sql);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
